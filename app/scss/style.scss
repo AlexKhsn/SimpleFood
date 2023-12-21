@@ -1,8 +1,124 @@
-@import 'vars';
-@import 'fonts';
-@import 'reset';
-@import 'global';
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "global";
 
 
+.header {
+    padding: 60px 0;
+    &__inner { 
+        display: flex;
+        align-items: center;
+    }
 
-@import 'media';
+    &__logo { 
+        margin-right: auto;
+    }
+}
+
+.menu {
+    margin-right: 63px;
+    &__list { 
+        display: flex;
+        & > *:not(:last-child) { 
+            margin-right: 45px;
+        }
+    }
+
+    &__link { 
+        font-size: 18px;
+        border-radius: 5px;
+        transition: color 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease, text-shadow 0.6s ease;
+
+        &--active { 
+            color: $accent;
+        }
+
+        &:focus { 
+            background-color: rgba(255, 255, 255, 0.01);
+            box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+        }
+
+        &:hover { 
+            color: $accent;
+        }
+
+        &:active { 
+            color: $default;
+            text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+        }
+    }
+}
+
+.user-nav {
+    display: flex;
+    & > *:not(:last-child) { 
+        margin-right: 10px;
+    }
+
+    &__link { 
+        display: block;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 5px;
+        transition: background-color 0.6s ease, box-shadow 0.6s ease;
+        &-value { 
+            position: absolute;
+            top: 9px;
+            left: 26px;
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+            text-align: center;
+            background-color: $accent;
+            color: $white;
+            border-radius: 50%;
+            transition: color 0.6s ease, background-color 0.6s ease;
+        }
+
+        &:focus { 
+            background-color: rgba(255, 122, 80, 0.10);;
+            box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+        }
+
+        &:hover { 
+            background-color: $light-accent;
+            path,
+            ellipse { 
+                stroke: $white;
+            }
+            .user-nav__link-value { 
+                background-color: $white;
+                color: $light-accent;
+            }
+        }
+
+        &:active { 
+            background-color: #FFF2ED;
+            path,
+            ellipse { 
+                stroke: $title;
+            }
+            .user-nav__link-value { 
+                background-color: $accent;
+                color: $white;
+            }
+        }
+    }
+
+    &__img { 
+        position: absolute;
+        inset: 50%;
+        width: 19px;
+        height: 19px;
+        transform: translate(-50%, -50%);
+        path,
+        ellipse { 
+            transition: stroke 0.5s ease;
+        }
+    }
+}
+
+
+@import "media"
